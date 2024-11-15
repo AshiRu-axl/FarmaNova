@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 class clienteController extends Controller
 {
     
+    //Para regresar las vistas en un anchor usa el siguiente formato -> href=''{{route'nombre'}}
+    //Todos los anchors en el menu de al lado estan en 
+
     public function index()
-    {
+    {   
+        //El primero es una carpeta y el segundo el nombre de la pantalla, es como navegar entre directorios pero sin usando . en vez de /
+        //Todos los anchors del menu de al lado estan en resources/views/clientes/navigation-menu
         return view("clientes.index");
     }
 
@@ -17,7 +22,7 @@ class clienteController extends Controller
      */
     public function create()
     {
-        //
+        return view("");
     }
 
     /**
