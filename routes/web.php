@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clienteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,4 +21,5 @@ Route::get('/404', function () {
 
 Route::view('/panel', 'panel.index')->name('panel');
 
-Route::view('/categoria','categoria.index')->name('categoria');
+Route::resource('cliente', clienteController::class);
+

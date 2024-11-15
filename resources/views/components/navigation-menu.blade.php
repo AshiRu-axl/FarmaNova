@@ -1,4 +1,4 @@
-<div id="layoutSidenav_nav">
+<div id="layoutSidenav_nav" class="change">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
@@ -76,16 +76,12 @@
                                 </nav>
                             </div>
                             <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-                                Clientes
-                            </a>
-                            <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-truck"></i></div>
                                 Distribuidores
                             </a>
                            
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                            <a class="nav-link" href={{route('cliente.index')}}>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users-rectangle"></i></div>
                                 Clientes
                             </a>
                     
