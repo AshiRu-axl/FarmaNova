@@ -25,13 +25,13 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
    <li class="breadcrumb-item active">Categorias</li>
 </ol>
 <div class="mb-4">
-<a href=""><button type="button" class="btn btn-primary">Añadir a nuevo registro</button></a>
+<a href="{{route('cliente.create')}}"><button type="button" class="btn btn-primary">Añadir a nuevo registro</button></a>
 </div>
 <div class="card mb-4">
     {{--Inicio de la tabla, copia y pega esto si lo vas a reusar--}}
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                Tabla Clientes
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

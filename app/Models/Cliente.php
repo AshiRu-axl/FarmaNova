@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Iluminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    use HasFacotry;
+    use HasFactory;
     public function documento(){
         return $this->belongsTo(Documento::class);
     }

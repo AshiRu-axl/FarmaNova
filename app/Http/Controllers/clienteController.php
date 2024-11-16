@@ -14,7 +14,7 @@ class clienteController extends Controller
     {   
         //El primero es una carpeta y el segundo el nombre de la pantalla, es como navegar entre directorios pero sin usando . en vez de /
         //Todos los anchors del menu de al lado estan en resources/views/clientes/navigation-menu
-        return view("clientes.index");
+        return view("cliente.index");
     }
 
     /**
@@ -22,7 +22,7 @@ class clienteController extends Controller
      */
     public function create()
     {
-        return view("");
+        return view("cliente.create");
     }
 
     /**
