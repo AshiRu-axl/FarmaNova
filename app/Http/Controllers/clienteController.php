@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Cliente;
 class clienteController extends Controller
 {
     
@@ -14,7 +14,9 @@ class clienteController extends Controller
     {   
         //El primero es una carpeta y el segundo el nombre de la pantalla, es como navegar entre directorios pero sin usando . en vez de /
         //Todos los anchors del menu de al lado estan en resources/views/clientes/navigation-menu
-        return view("cliente.index");
+        $clientes = Cliente::with('documento')->get();
+      
+        return view("cliente.index",['clientes'=>$clientes]);
     }
 
     /**

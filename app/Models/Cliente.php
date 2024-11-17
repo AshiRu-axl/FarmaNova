@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
-    public function documento(){
+    public function documento()
+    {
         return $this->belongsTo(Documento::class);
     }
 

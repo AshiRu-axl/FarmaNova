@@ -10,6 +10,6 @@ class Documento extends Model
 {
     use HasFactory;
     public function cliente(){
-        return $this -> hasOne(Cliente::class);
+        return $this ->hasMany(Cliente::class);
     }
 }
