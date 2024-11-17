@@ -21,5 +21,5 @@ Route::get('/404', function () {
 
 Route::view('/panel', 'panel.index')->name('panel');
 
-Route::resource('cliente', clienteController::class);
+Route::resources(['clientes'=> clienteController::class]);
 

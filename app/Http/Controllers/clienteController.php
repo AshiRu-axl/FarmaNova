@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClienteRequest;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Documento;
+use Illuminate\Support\Facades\DB;
 class clienteController extends Controller
 {
     
@@ -14,7 +17,7 @@ class clienteController extends Controller
     {   
         //El primero es una carpeta y el segundo el nombre de la pantalla, es como navegar entre directorios pero sin usando . en vez de /
         //Todos los anchors del menu de al lado estan en resources/views/clientes/navigation-menu
-        $clientes = Cliente::with('documento')->get();
+        $clientes = Cliente::all();
       
         return view("cliente.index",['clientes'=>$clientes]);
     }
@@ -30,11 +33,22 @@ class clienteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClienteRequest $request)
     {
-        //
+
+        
+        
+try {       
+        $cliente = Cliente::create($request->validated());
+          DB::beginTransaction();
+          DB::commit();
+    }catch(\Exception $e){
+        DB::rollBack();
     }
 
+    return redirect()->route('clientes.index')->with('success', 'Cliente registrado');
+    }
+    
     /**
      * Display the specified resource.
      */
@@ -46,9 +60,9 @@ class clienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Cliente $cliente)
     {
-        return view("",[""=>$id]);
+        return view("cliente.edit",["cliente"=>$cliente]);
     }
 
     /**

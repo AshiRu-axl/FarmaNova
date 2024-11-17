@@ -80,7 +80,7 @@
                                 Distribuidores
                             </a>
                            
-                            <a class="nav-link" href={{route('cliente.index')}}>
+                            <a class="nav-link" href={{route('clientes.index')}}>
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-users-rectangle"></i></div>
                                 Clientes
                             </a>

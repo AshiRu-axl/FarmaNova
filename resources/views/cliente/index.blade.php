@@ -25,7 +25,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
    <li class="breadcrumb-item active">Categorias</li>
 </ol>
 <div class="mb-4">
-<a href="{{route('cliente.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
+<a href="{{route('clientes.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
 </div>
 <div class="card mb-4">
     {{--Inicio de la tabla, copia y pega esto si lo vas a reusar--}}
@@ -54,12 +54,14 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
                                         <tr>
                                             <td>{{$cliente -> nombre}}</td>
                                             <td>{{$cliente -> apellido}}</td>
-                                            <td>{{$cliente -> id}}      </td>
+                                            <td>{{$cliente -> documento_id}}      </td>
                                             <td>{{$cliente -> telefono}}</td>
                                             <td>{{$cliente -> correo}}        </td>
                                             <td>{{$cliente -> direccion}}      </td>
                                             <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                 <button type="button" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></button>
+                                                <form action="{{route('clientes.edit',['cliente'=>$cliente])}}" method="get">
+                                                 <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></button>
+                                                 </form>
                                                      <button type="button" class="btn btn-secondary"><i class="fa-regular fa-circle-xmark"></i></button>
                                                 </div></td>
                                            
