@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained('clientes');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->dateTime('fecha_hora');
             $table->string('tipo_comprobante', 50);
             $table->string('numero_comprobante', 50);
@@ -30,5 +30,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('ventas');
     }
+    
     
 };

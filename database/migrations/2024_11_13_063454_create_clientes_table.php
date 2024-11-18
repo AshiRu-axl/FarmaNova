@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('documento_id');
+            $table->string('documento_id', 50)->unique()->nullable();
             $table->string('nombre', 50);
             $table->string('apellido', 50);
-            $table->string('direccion', 50);
-            $table->string('telefono', 50);
-            $table->string('correo', 50);
+            $table->string('direccion', 50)->nullable();
+            $table->string('telefono', 50)->nullable();
+            $table->string('correo', 50)->unique()->nullable();
+            
             $table->timestamps();
         });
     }
@@ -27,5 +28,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('clientes');
     }
+    
     
 };

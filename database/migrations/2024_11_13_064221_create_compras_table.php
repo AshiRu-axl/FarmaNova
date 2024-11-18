@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('proveedor_id')->constrained('proveedores');
+            $table->foreignId('proveedor_id')->constrained('proveedores')->onDelete('cascade');
             $table->string('tipo_comprobante', 50);
             $table->string('numero_comprobante', 50);
             $table->integer('estado');
@@ -28,5 +28,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('compras');
     }
+    
     
 };
