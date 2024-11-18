@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Documento;
 use Illuminate\Support\Facades\DB;
+use Exception;
+use App\Http\Requests\UpdateClienteRequest;
 class clienteController extends Controller
 {
     
@@ -42,7 +44,7 @@ try {
         $cliente = Cliente::create($request->validated());
           DB::beginTransaction();
           DB::commit();
-    }catch(\Exception $e){
+    }catch(Exception $e){
         DB::rollBack();
     }
 
@@ -68,10 +70,16 @@ try {
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateClienteRequest $request, Cliente $cliente)
     {
-        //
+        // Debug validated input
+        
+        
+        $cliente->update($request->validated());
+    
+        return redirect()->route('clientes.index')->with('success', 'Cliente actualizado correctamente.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

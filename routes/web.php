@@ -23,3 +23,6 @@ Route::view('/panel', 'panel.index')->name('panel');
 
 Route::resources(['clientes'=> clienteController::class]);
 
+Route::get('/distribuidor', function () {
+    return view('distribuidor.index');
+});

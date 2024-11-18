@@ -17,8 +17,9 @@
 
     <div class="card text-bg-light">
         <form action="{{ route('clientes.update',['cliente'=>$cliente]) }}" method="post">
-            @method('PATCH')
-            @csrf
+        @csrf   
+        @method('PATCH')
+           
             <div class="card-header">
                 <p>Cliente <span class="fw-bold">{{ strtoupper($cliente->nombre)}}</span></p>
             </div>
@@ -61,7 +62,7 @@
                     <div class="col-6">
                         <label for="telefono" class="form-label">Telefono</label>
                         <input required type="text" name="telefono" id="telefono" class="form-control" value="{{old('telefono',$cliente->telefono)}}">
-                        @error('documento_id')
+                        @error('telefono')
                         <small class="text-danger">{{'*'.$message}}</small>
                         @enderror
                     </div>
@@ -69,7 +70,7 @@
                     <div class="col-6">
                         <label for="direccion" class="form-label">Direccion</label>
                         <input required type="text" name="direccion" id="direccion" class="form-control" value="{{old('direccion',$cliente->direccion)}}">
-                        @error('documento_id')
+                        @error('direccion')
                         <small class="text-danger">{{'*'.$message}}</small>
                         @enderror
                     </div>
@@ -77,7 +78,7 @@
                      <div class="col-6">
                         <label for="correo" class="form-label">correo</label>
                         <input required type="text" name="correo" id="correo" class="form-control" value="{{old('correo',$cliente->correo)}}">
-                        @error('documento_id')
+                        @error('correo')
                         <small class="text-danger">{{'*'.$message}}</small>
                         @enderror
                     </div>

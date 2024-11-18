@@ -13,11 +13,12 @@ class UpdateClienteRequest extends FormRequest
     public function rules()
     {
         return [
+            'documento_id' => 'nullable|string|max:50',
             'nombre' => 'required|string|max:50',
             'apellido' => 'required|string|max:50',
             'direccion' => 'nullable|string|max:50',
             'telefono' => 'nullable|string|max:50',
-            'correo' => 'nullable|email|max:50|unique:clientes,correo,' . $this->route('cliente'),
+            'correo' => 'nullable|email|max:50|unique:clientes,correo,' . $this->route('cliente')->id,
         ];
     }
 }
