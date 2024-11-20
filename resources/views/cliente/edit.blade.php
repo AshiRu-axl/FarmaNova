@@ -17,9 +17,9 @@
 
     <div class="card text-bg-light">
         <form action="{{ route('clientes.update',['cliente'=>$cliente]) }}" method="post">
-        @csrf   
-        @method('PATCH')
-           
+            @csrf
+            @method('PATCH')
+
             <div class="card-header">
                 <p>Cliente <span class="fw-bold">{{ strtoupper($cliente->nombre)}}</span></p>
             </div>
@@ -29,9 +29,9 @@
 
                     <!-------Razón social------->
                     <div class="col-6">
-                       
+
                         <label id="label-juridica" for="nombre" class="form-label">Nombre</label>
-                       
+
 
                         <input required type="text" name="nombre" id="nombre" class="form-control" value="{{old('nombre',$cliente->nombre)}}">
 
@@ -50,7 +50,7 @@
                     </div>
 
                     <!--------------Documento------->
-                
+
                     <div class="col-6">
                         <label for="documento_id" class="form-label">Cedula</label>
                         <input required type="text" name="documento_id" id="documento_id" class="form-control" value="{{old('documento_id',$cliente->documento_id)}}">
@@ -75,7 +75,7 @@
                         @enderror
                     </div>
 
-                     <div class="col-6">
+                    <div class="col-6">
                         <label for="correo" class="form-label">correo</label>
                         <input required type="text" name="correo" id="correo" class="form-control" value="{{old('correo',$cliente->correo)}}">
                         @error('correo')
