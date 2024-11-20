@@ -58,18 +58,48 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
                                             <td>{{$cliente -> telefono}}</td>
                                             <td>{{$cliente -> correo}}        </td>
                                             <td>{{$cliente -> direccion}}      </td>
-                                            <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                                 <form action="{{route('clientes.edit',['cliente'=>$cliente])}}" method="get">
                                                  <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></button>
                                                  </form>
-                                                     <button type="button" class="btn btn-secondary"><i class="fa-regular fa-circle-xmark"></i></button>
-                                                </div></td>
+                                                 
+                                                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$cliente->id}}"><i class="fa-regular fa-circle-xmark"></i></button>
+                                                     </form>
+                                                </div>
+                                            </td>
                                            
                                         </tr>
-                                           
-                                        </tr>
-                                        
                                         @endforeach
+                                           
+                                      <!-- Button trigger modal -->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="confirmModal-{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <form action="{{route('clientes.destroy',['cliente'=>$cliente->id])}}" method="post">
+         @method('DELETE');
+          @csrf
+          <button type="submit" class="btn btn-primary">Save changes</button>
+         </form>
+        
+      </div>
+    </div>
+  </div>
+</div>                           
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -81,4 +111,9 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 <script src="{{asset('js/datatables-simple-demo.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.modal').modal('show');
+});
+</script>
 @endpush

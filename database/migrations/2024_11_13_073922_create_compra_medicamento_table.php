@@ -1,14 +1,13 @@
 <?php
 
+// database/migrations/xxxx_xx_xx_create_compra_medicamento_table.php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('compra_medicamento', function (Blueprint $table) {
@@ -23,10 +22,9 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('compra_medicamento');
     }
-    
 };
