@@ -4,7 +4,7 @@ use App\Http\Controllers\clienteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('template');
+    return view('layouts.admin');
 });
 
 Route::view('/login','auth.login')->name('login');
@@ -22,4 +22,10 @@ Route::get('/404', function () {
 Route::view('/panel', 'panel.index')->name('panel');
 
 Route::resources(['clientes'=> clienteController::class]);
+
+Route::get('/admin', function(){
+    return view('layouts.admin');
+});
+
+
 

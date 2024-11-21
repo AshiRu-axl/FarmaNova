@@ -13,13 +13,13 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         @stack('css')
     </head>
-    <body class="sb-nav-fixed">
+    <body>
 {{----Se agrega el contenido de el componente header --}}
     <x-navigation-header/>
    
-        <div id="layoutSidenav">
+        
             <x-navigation-menu/>
-            <div id="layoutSidenav_content">
+           
                 <main>
 
                 {{----Lee lo que dice en clientes/index --}}
