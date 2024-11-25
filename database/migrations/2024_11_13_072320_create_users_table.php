@@ -10,13 +10,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // Esto creará un BIGINT como clave primaria
-            $table->bigInteger('role_id')->constrained('roles');
+            $table->id();
+            $table->foreignId('roles_id')->nullable()->constrained('roles')->nullOnDelete()->cascadeOnUpdate();
             $table->string('nombre', 50);
             $table->string('correo', 50)->unique();
-            $table->string('contraseña', 255); // Asegura suficiente espacio para almacenar un hash
+            $table->string('contraseña', 255);
+            $table->tinyInteger('estado')->default(value: 1);
             $table->timestamps();
-            $table->engine = 'InnoDB'; // Forzamos el motor InnoDB
         });
     }
     
@@ -24,6 +24,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+    
     
 
 };

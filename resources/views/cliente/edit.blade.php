@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title','Editar cliente')
 
@@ -6,7 +6,7 @@
 
 @endpush
 
-@section('content')
+@section('contenido')
 <div class="container-fluid px-4">
     <h1 class="mt-4 text-center">Editar Cliente</h1>
     <ol class="breadcrumb mb-4">

@@ -12,4 +12,7 @@ class Metadato extends Model
     {
         return $this->belongsToMany(Medicamento::class)->withTimestamps();
     }
+
+    protected $fillable = ["nombre", "descripcion", "estado", "tipo"];
 }
+

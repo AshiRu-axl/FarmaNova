@@ -11,15 +11,16 @@ return new class extends Migration
     {
         Schema::create('metadata_medicamento', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('medicamento_id')->constrained('medicamentos');
-            $table->bigInteger('metadata_id')->constrained('metadatos');
+            $table->foreignId('medicamento_id')->constrained('medicamentos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('metadata_id')->constrained('metadatos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
-
+    
     public function down()
     {
         Schema::dropIfExists('metadata_medicamento');
     }
+    
 }
 ;

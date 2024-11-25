@@ -11,17 +11,18 @@ return new class extends Migration
     {
         Schema::create('venta_medicamento', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('venta_id')->constrained('ventas');
-            $table->bigInteger('medicamento_id')->constrained('medicamentos');
+            $table->foreignId('venta_id')->constrained('ventas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('medicamento_id')->constrained('medicamentos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->decimal('precio_venta', 10, 2);
             $table->integer('cantidad');
-            $table->decimal('descuento', 10, 2);
+            $table->decimal('descuento', 10, 2)->nullable();
             $table->timestamps();
         });
     }
-
+    
     public function down()
     {
         Schema::dropIfExists('venta_medicamento');
     }
+    
 };

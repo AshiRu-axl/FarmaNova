@@ -11,14 +11,15 @@ return new class extends Migration
     {
         Schema::create('rol_permiso', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('roles_id')->constrained('roles');
-            $table->foreignId('permiso_id')->constrained('permisos');
+            $table->foreignId('roles_id')->constrained('roles')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('permiso_id')->constrained('permisos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
-
+    
     public function down()
     {
         Schema::dropIfExists('rol_permiso');
     }
+    
 };

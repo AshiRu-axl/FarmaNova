@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\clienteController;
+use App\Http\Controllers\familiaController;
+use App\Http\Controllers\presentacionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +24,11 @@ Route::get('/404', function () {
 Route::view('/panel', 'panel.index')->name('panel');
 
 Route::resources(['clientes'=> clienteController::class]);
+
+Route::resources(['familias'=> familiaController::class]);
+
+Route::resources(['presentaciones'=> presentacionController::class]);
+
 
 Route::get('/admin', function(){
     return view('layouts.admin');

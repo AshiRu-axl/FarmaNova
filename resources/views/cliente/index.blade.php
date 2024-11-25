@@ -4,18 +4,20 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
 
 --}}
-@extends('template')
+@extends('layouts.admin')
 
 @section('title','clientes')
 
 @push('css')
-<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 
-
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 @endpush
 
 {{--Aqui inicia--}}
-@section('content')
+@section('contenido')
+
+
+<!-- Page Wrapper -->
 
 <div class="container-fluid px-4">
 
@@ -24,98 +26,145 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
     <li class="breadcrumb-item"> <a href="{{route('panel')}}">Inicio</a></li>
     <li class="breadcrumb-item active">Categorias</li>
   </ol>
-  <div class="mb-4">
-    <a href="{{route('clientes.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
+</div>
+<div class="mb-4">
+  <a href="{{route('clientes.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
+</div>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
   </div>
-  <div class="card mb-4">
-    {{--Inicio de la tabla, copia y pega esto si lo vas a reusar--}}
-    <div class="card-header">
-      <i class="fas fa-table me-1"></i>
-      Tabla Clientes
-    </div>
-    <div class="card-body">
-      <table id="datatablesSimple" class="table table-striped">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
-          <tr>
+        <tr>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Numero</th>
-            <th>Telefono</th>
+            <th>Cedula</th>
             <th>Correo</th>
-            <th>Direccion</th>
+            <th>Numero</th>
             <th>Accion</th>
           </tr>
         </thead>
-
-        <tbody>
-          @foreach ($clientes as $cliente )
-
-          @if($cliente->estado==1)
+        <tfoot>
           <tr>
-           
-            <td>{{$cliente -> nombre}}</td>
-            <td>{{$cliente -> apellido}}</td>
-            <td>{{$cliente -> documento_id}} </td>
-            <td>{{$cliente -> telefono}}</td>
-            <td>{{$cliente -> correo}} </td>
-            <td>{{$cliente -> direccion}} </td>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cedula</th>
+            <th>Numero</th>
+            <th>Accion</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          @foreach($clientes as $cliente)
+          <tr>
+            <td>{{$cliente->nombre}}</td>
+            <td>{{$cliente->apellido}}</td>
+            <td>{{$cliente->documento_id}}</td>
+            <td>{{$cliente->telefono}}</td>
+            <td>{{$cliente->correo}}</td>
             <td>
-              <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <form action="{{route('clientes.edit',['cliente'=>$cliente])}}" method="get">
-                  <button type="submit" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></button>
-                </form>
 
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#confirmModal-{{$cliente->id}}"><i class="fa-regular fa-circle-xmark"></i></button>
-                </form>
-              </div>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <form action="{{route('clientes.edit',['cliente'=>$clientes])}}" method="get">
+              <button  class="btn btn-warning btn-circle">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+            </form>
+            </div>
+              <button href="#" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+              </button>
+
             </td>
 
           </tr>
-          @endif
           @endforeach
-
-          <!-- Button trigger modal -->
-          <!-- Button trigger modal -->
-
-
-          <!-- Modal -->
-          <div class="modal fade" id="confirmModal-{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <form action="{{route('clientes.destroy',['cliente'=>$cliente->id])}}" method="post">
-                    @method('DELETE');
-                    @csrf
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                  </form>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
         </tbody>
       </table>
     </div>
   </div>
+</div>
 
 
-  @endsection
 
-  @push('js')
-  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
-  <script src="{{asset('js/datatables-simple-demo.js')}}"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.modal').modal('show');
-    });
-  </script>
-  @endpush
+<!-- End of Main Content -->
+
+<!-- Footer -->
+
+<!-- End of Footer -->
+
+
+<!-- End of Content Wrapper -->
+
+
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+
+
+<!-- End of Main Content -->
+
+<!-- Footer -->
+
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--DeleteModal-->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection
+
+@push('scripts')
+
+@endpush
