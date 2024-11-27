@@ -32,7 +32,7 @@
             <span>Compra</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('medicamentos.index')}}">
         <i class="fa-solid fa-tablets"></i>
             <span>Medicamentos</span></a>
     </li>

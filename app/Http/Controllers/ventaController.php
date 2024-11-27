@@ -2,25 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMetadatoRequest;
 use Illuminate\Http\Request;
-use App\Models\Metadato;
-use App\Models\Documento;
-use Illuminate\Support\Facades\DB;
-use Exception;
-use App\Http\Requests\UpdateClienteRequest;
 
-class familiaController extends Controller
+class ventaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
-
-        $title="Familias";
-        $metadatos = Metadato::where('tipo', 'familia')->get();
-        return view("datos.index",['metadatos'=>$metadatos],['title'=>$title]);
+    {
+        
     }
 
     /**
@@ -68,6 +59,6 @@ class familiaController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        //
     }
 }

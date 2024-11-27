@@ -1,3 +1,5 @@
+
+
 {{--
 extends hereda una vista, si buscas en resources/template vas a encontrar la directiva yield con la seccion content, 
 Osea se, esta pantalla va a tener todo el contenido del template junto con este bloque a donde se encuentre la directiva @yield
@@ -6,7 +8,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 --}}
 @extends('layouts.admin')
 
-@section('title','proveedores')
+@section('title','medicamentos')
 
 @push('css')
 
@@ -21,14 +23,14 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
 <div class="container-fluid px-4">
 
-  <h1 class="mt-4">Proveedores</h1>
+  <h1 class="mt-4">{{$title}}</h1>
   <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"> <a href="{{route('panel')}}">Inicio</a></li>
-    <li class="breadcrumb-item active">Categorias</li>
+    <li class="breadcrumb-item"> <a href="{{route('panel')}}"></a></li>
+    <li class="breadcrumb-item active">Medicamentos</li>
   </ol>
 </div>
 <div class="mb-4">
-  <a href="{{route('proveedores.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
+  <a href="{{route('medicamentos.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
 </div>
 
 
@@ -41,42 +43,38 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
-        <tr>
+          
+
+            <tr>
+            <th>Codigo</th>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Correo</th>
-            <th>Numero</th>
-            <th>Accion</th>
+            <th>Marcas</th>
+            <th>Presentacion</th>
+            <th>Tipo de medicamento</th>
+         
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Numero</th>
-            <th>Accion</th>
+             <th>Codigo</th>
+             <th>Titulo</th>
+             <th>Descripcion</th>
+             <th>Descripcion</th>
+             <th>Tipo de medicamento</th>
+         
+            
+     
           </tr>
         </tfoot>
         <tbody>
-          @foreach($proveedores as $proveedore)
+          @foreach($medicamentos as $medicamento)
           <tr>
-            <td>{{$proveedore->nombre}}</td>
+            <td>{{$medicamento->nombre}}</td>
+            <td>{{$medicamento->descripcion}}</td>
+       
+          
+            <td>
 
-            <td>{{$proveedore->telefono}}</td>
-    
-
-            <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <form action="{{route('proveedores.edit',['proveedore'=>$proveedore])}}" method="get">
-              <button  class="btn btn-warning btn-circle">
-                <i class="fa-solid fa-pen"></i>
-              </button>
-            </form>
-            </div>
-              <button href="#" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-              </button>
 
             </td>
 
@@ -166,3 +164,5 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 @push('scripts')
 
 @endpush
+
+

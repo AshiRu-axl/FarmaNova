@@ -5,6 +5,7 @@ use App\Http\Controllers\contraindicacionController;
 use App\Http\Controllers\enfermedadController;
 use App\Http\Controllers\familiaController;
 use App\Http\Controllers\marcaController;
+use App\Http\Controllers\medicamentoController;
 use App\Http\Controllers\presentacionController;
 use App\Http\Controllers\proveedoreController;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,15 @@ Route::resources(['enfermedades'=> enfermedadController::class]);
 
 Route::resources(['contraindicaciones'=> contraindicacionController::class]);
 
+Route::resources(['medicamentos'=> medicamentoController::class]);
+
 
 Route::get('/admin', function(){
     return view('layouts.admin');
+});
+
+Route::get('/venta', function () {
+    return view('compras.index');
 });
 
 

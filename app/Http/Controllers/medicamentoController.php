@@ -1,26 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\StoreMetadatoRequest;
 use Illuminate\Http\Request;
-use App\Models\Metadato;
+use App\Models\Medicamento;
 use App\Models\Documento;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use App\Http\Requests\UpdateClienteRequest;
 
-class familiaController extends Controller
+class medicamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {   $title = "Medicamentos";
+        $medicamento = Medicamento::all();
 
-        $title="Familias";
-        $metadatos = Metadato::where('tipo', 'familia')->get();
-        return view("datos.index",['metadatos'=>$metadatos],['title'=>$title]);
+        return view("medicamentos.index", ['medicamentos' => $medicamento],['title'=>$title]);
     }
 
     /**
@@ -68,6 +66,6 @@ class familiaController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        //
     }
 }

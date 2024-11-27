@@ -34,8 +34,11 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
+       
      <x-sidebar/>
+
+    
+     
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
