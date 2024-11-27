@@ -1,3 +1,5 @@
+
+
 {{--
 extends hereda una vista, si buscas en resources/template vas a encontrar la directiva yield con la seccion content, 
 Osea se, esta pantalla va a tener todo el contenido del template junto con este bloque a donde se encuentre la directiva @yield
@@ -21,9 +23,9 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
 <div class="container-fluid px-4">
 
-  <h1 class="mt-4">Clientes</h1>
+  <h1 class="mt-4">{{$title}}</h1>
   <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"> <a href="{{route('panel')}}">Inicio</a></li>
+    <li class="breadcrumb-item"> <a href="{{route('panel')}}"></a></li>
     <li class="breadcrumb-item active">Categorias</li>
   </ol>
 </div>
@@ -41,44 +43,32 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Correo</th>
-            <th>Numero</th>
-            <th>Accion</th>
+          
+
+            <tr>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+         
           </tr>
         </thead>
         <tfoot>
           <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Numero</th>
-            <th>Accion</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+             <th>Descripcion</th>
+            
+     
           </tr>
         </tfoot>
         <tbody>
-          @foreach($clientes as $cliente)
+          @foreach($metadatos as $metadato)
           <tr>
-            <td>{{$cliente->nombre}}</td>
-            <td>{{$cliente->apellido}}</td>
-            <td>{{$cliente->documento_id}}</td>
-            <td>{{$cliente->telefono}}</td>
-            <td>{{$cliente->correo}}</td>
+            <td>{{$metadato->nombre}}</td>
+            <td>{{$metadato->descripcion}}</td>
+       
+          
             <td>
 
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <form action="{{route('clientes.edit',['cliente'=>$cliente])}}" method="get">
-              <button  class="btn btn-warning btn-circle">
-                <i class="fa-solid fa-pen"></i>
-              </button>
-            </form>
-            </div>
-              <button href="#" class="btn btn-danger btn-circle">
-                <i class="fas fa-trash"></i>
-              </button>
 
             </td>
 
@@ -168,3 +158,5 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 @push('scripts')
 
 @endpush
+
+

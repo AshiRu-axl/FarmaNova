@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 use App\Http\Requests\StoreMetadatoRequest;
 use Illuminate\Http\Request;
@@ -8,15 +9,15 @@ use Illuminate\Support\Facades\DB;
 use Exception;
 use App\Http\Requests\UpdateClienteRequest;
 
-
-class presentacionController extends Controller
+class marcaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   $title="Presentaciones";
-        $metadatos = Metadato::where('tipo', 'presentacion')->get();
+    {   
+        $title='Marcas';
+        $metadatos = Metadato::where('tipo', 'marca')->get();
         return view("datos.index",['metadatos'=>$metadatos],['title'=>$title]);
     }
 

@@ -21,7 +21,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
 <div class="container-fluid px-4">
 
-  <h1 class="mt-4">Clientes</h1>
+  <h1 class="mt-4">Proveedores</h1>
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"> <a href="{{route('panel')}}">Inicio</a></li>
     <li class="breadcrumb-item active">Categorias</li>
@@ -60,14 +60,12 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
           </tr>
         </tfoot>
         <tbody>
-          @foreach($clientes as $cliente)
+          @foreach($proveedores as $proveedore)
           <tr>
-            <td>{{$cliente->nombre}}</td>
-            <td>{{$cliente->apellido}}</td>
-            <td>{{$cliente->documento_id}}</td>
+            <td>{{$proveedore->nombre}}</td>
+
             <td>{{$cliente->telefono}}</td>
-            <td>{{$cliente->correo}}</td>
-            <td>
+    
 
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <form action="{{route('clientes.edit',['cliente'=>$cliente])}}" method="get">

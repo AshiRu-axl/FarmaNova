@@ -1,21 +1,40 @@
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: rgba(17, 31, 39, 1);">
+
+<ul class="navbar-nav sidebar sidebar-dark accordion toggled" id="accordionSidebar" style="transition: all 0.2s ease; background-color: rgba(17, 31, 39, 1);">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <img src="{{ asset('vendor/logo02.svg') }}" alt="home icon" style="width: 50px; height: 50px;" />
+
+
+            
+            
+       
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+ 
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <div class="sidebar-heading">
+        Acciones
+    </div>
+    <li class="nav-item">
         <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+        <i class="fa-brands fa-shopify"></i>
+            <span>Venta</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+        <i class="fa-solid fa-shop"></i>
+            <span>Compra</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+        <i class="fa-solid fa-tablets"></i>
+            <span>Medicamentos</span></a>
     </li>
 
     <!-- Divider -->
@@ -23,7 +42,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Ayuda 
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -38,6 +57,7 @@
                 <h6 class="collapse-header">Categorias:</h6>
                 <a class="collapse-item" href="{{route('familias.index')}}">Familias</a>
                 <a class="collapse-item" href="{{route('presentaciones.index')}}">Presentaciones</a>
+                <a class="collapse-item" href="{{route('marcas.index')}}">Marcas</a>
             </div>
         </div>
     </li>
@@ -46,15 +66,15 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
+            <i class="fa-solid fa-sitemap"></i>
+            <span>Detalles</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Detalles:</h6>
-                <a class="collapse-item" href="utilities-color.html">Enfermedades</a>
-                <a class="collapse-item" href="utilities-border.html">Contraindicaciones</a>
+                <a class="collapse-item" href="{{route('enfermedades.index')}}">Enfermedades</a>
+                <a class="collapse-item" href="{{route('contraindicaciones.index')}}">Contraindicaciones</a>
             </div>
         </div>
     </li>
@@ -62,24 +82,37 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+
     <div class="sidebar-heading">
-        Addons
-    </div>
+        Administrar
+    </div>   
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('proveedores.index')}}">
+        <i class="fa-solid fa-truck"></i>
+            <span>Proveedores</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('clientes.index')}}">
+        <i class="fa-solid fa-users-rectangle"></i>
+            <span>Clientes</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+        <i class="fa-solid fa-user"></i>
+            <span>Usuarios</span></a>
+    </li>
+    <!-- Heading -->
+  
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
+  
     <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
+    <div class="text-center d-none d-md-inline mt-3" >
+    <button class="rounded-circle border-0" id="sidebarToggle" ></button>
+</div>
 
     <!-- Sidebar Message -->
-    <div class="sidebar-card d-none d-lg-flex">
-        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-        <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-    </div>
+  
 
 </ul>

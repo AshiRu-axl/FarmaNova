@@ -1,23 +1,25 @@
 <?php
+
 namespace App\Http\Controllers;
-use App\Http\Requests\StoreMetadatoRequest;
+
+use App\Http\Requests\StoreDetalleRequest;
 use Illuminate\Http\Request;
-use App\Models\Metadato;
+use App\Models\Detalle;
 use App\Models\Documento;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use App\Http\Requests\UpdateClienteRequest;
 
-
-class presentacionController extends Controller
+class contraindicacionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   $title="Presentaciones";
-        $metadatos = Metadato::where('tipo', 'presentacion')->get();
-        return view("datos.index",['metadatos'=>$metadatos],['title'=>$title]);
+    {
+        $title='Contraindicaciones';
+        $detalles = Detalle::where('tipo', 'marca')->get();
+        return view("detalles.index",['detalles'=>$detalles],['title'=>$title]);
     }
 
     /**

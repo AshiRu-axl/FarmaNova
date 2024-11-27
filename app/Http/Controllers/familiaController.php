@@ -17,8 +17,10 @@ class familiaController extends Controller
      */
     public function index()
     {   
+
+        $title="Familias";
         $metadatos = Metadato::where('tipo', 'familia')->get();
-        return view("familia.index",['metadatos'=>$metadatos]);
+        return view("datps.index",['metadatos'=>$metadatos],['title'=>$title]);
     }
 
     /**
