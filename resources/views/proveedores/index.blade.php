@@ -43,29 +43,24 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
         <thead>
         <tr>
             <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
+            <th>Telefono</th>
             <th>Correo</th>
-            <th>Numero</th>
+            <th>Mostrar</th>
+      
             <th>Accion</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Numero</th>
-            <th>Accion</th>
-          </tr>
-        </tfoot>
+  
         <tbody>
           @foreach($proveedores as $proveedore)
           <tr>
             <td>{{$proveedore->nombre}}</td>
 
             <td>{{$proveedore->telefono}}</td>
-    
+
+            <td>{{$proveedore->correo}}</td>
+            <td>test</td>
+           
 
             <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <form action="{{route('proveedores.edit',['proveedore'=>$proveedore])}}" method="get">

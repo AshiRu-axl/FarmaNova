@@ -10,7 +10,7 @@ class Detalle extends Model
     use HasFactory;
     public function medicamentos()
     {
-        return $this->belongsToMany(Medicamento::class)->withTimestamps();
+        return $this->belongsToMany(Medicamento::class,'medicamento_detalle')->withTimestamps();
     }
 
     protected $fillable = ["nombre", "descripcion", "estado", "tipo"];

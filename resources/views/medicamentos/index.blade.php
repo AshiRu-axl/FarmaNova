@@ -25,7 +25,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
   <h1 class="mt-4">{{$title}}</h1>
   <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"> <a href="{{route('panel')}}"></a></li>
+    <li class="breadcrumb-item">Inicio</li>
     <li class="breadcrumb-item active">Medicamentos</li>
   </ol>
 </div>
@@ -46,36 +46,80 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
           
 
             <tr>
-            <th>Codigo</th>
             <th>Nombre</th>
-            <th>Marcas</th>
+            <th>Enfermedad</th>
+            <th>Familia</th>
             <th>Presentacion</th>
-            <th>Tipo de medicamento</th>
-         
+            <th>Marca</th>
+            <th>Contraindicaciones</th>         
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-             <th>Codigo</th>
-             <th>Titulo</th>
-             <th>Descripcion</th>
-             <th>Descripcion</th>
-             <th>Tipo de medicamento</th>
-         
-            
-     
-          </tr>
-        </tfoot>
+      
         <tbody>
           @foreach($medicamentos as $medicamento)
           <tr>
             <td>{{$medicamento->nombre}}</td>
-            <td>{{$medicamento->descripcion}}</td>
        
-          
+            
             <td>
+            @foreach ($medicamento->detalles as $detalle)
+            @if($detalle->tipo=='enfermedad')
+            <ul>
+         
+                <li>{{ $detalle->nombre }}</li>
+          
+            </ul>
+            @endif
+            @endforeach
+            </td>
+
+            <td>
+            @foreach ($medicamento->metadatos as $metadato)
+            @if($metadato->tipo=='familia')
+            <ul>
+         
+                <li>{{ $metadato->nombre }}</li>
+          
+            </ul>
+            @endif
+            @endforeach
+            </td>
 
 
+            <td>
+            @foreach ($medicamento->metadatos as $metadato)
+            @if($metadato->tipo=='presentacion')
+            <ul>
+         
+                <li>{{ $metadato->nombre }}</li>
+          
+            </ul>
+            @endif
+            @endforeach
+            </td>
+
+            <td>
+            @foreach ($medicamento->metadatos as $metadato)
+            @if($metadato->tipo=='marca')
+            <ul>
+         
+                <li>{{ $metadato->nombre }}</li>
+          
+            </ul>
+            @endif
+            @endforeach
+            </td>
+
+            <td>
+            @foreach ($medicamento->detalles as $detalle)
+            @if($detalle->tipo=='contraindicaciones')
+            <ul>
+         
+                <li>{{ $detalle->nombre }}</li>
+          
+            </ul>
+            @endif
+            @endforeach
             </td>
 
           </tr>

@@ -22,6 +22,10 @@ class Medicamento extends Model
 
     public function metadatos()
     {
-        return $this->belongsToMany(Metadato::class)->withTimestamps();
+        return $this->belongsToMany(Metadato::class,'metadata_medicamento','medicamento_id', 'metadata_id')->withTimestamps();
+    }
+
+    public function detalles(){
+        return $this->belongsToMany(Detalle::class,'medicamento_detalle')->withTimestamps();
     }
 }

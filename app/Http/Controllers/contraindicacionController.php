@@ -18,7 +18,7 @@ class contraindicacionController extends Controller
     public function index()
     {
         $title='Contraindicaciones';
-        $detalles = Detalle::where('tipo', 'marca')->get();
+        $detalles = Detalle::where('tipo', 'contraindicaciones')->get();
         return view("detalles.index",['detalles'=>$detalles],['title'=>$title]);
     }
 

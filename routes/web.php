@@ -9,6 +9,7 @@ use App\Http\Controllers\medicamentoController;
 use App\Http\Controllers\presentacionController;
 use App\Http\Controllers\proveedoreController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\compraController;
 
 Route::get('/', function () {
     return view('layouts.admin');
@@ -30,6 +31,8 @@ Route::view('/panel', 'panel.index')->name('panel');
 
 Route::resources(['clientes'=> clienteController::class]);
 
+Route::resources(['compras'=> compraController::class]);
+
 Route::resources(['familias'=> familiaController::class]);
 
 Route::resources(['presentaciones'=> presentacionController::class]);
@@ -50,7 +53,7 @@ Route::get('/admin', function(){
 });
 
 Route::get('/venta', function () {
-    return view('compras.index');
+    return view('datos.create');
 });
 
 

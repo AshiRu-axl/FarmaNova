@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFamiliaRequest;
 use App\Http\Requests\StoreMetadatoRequest;
 use Illuminate\Http\Request;
 use App\Models\Metadato;
@@ -28,16 +29,29 @@ class familiaController extends Controller
      */
     public function create()
     {
-        //
+        return view("datos.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMetadatoRequest $request)
     {
-        //
-    }
+   
+    
+    
+            try {
+                $metadato = Metadato::create($request->validated());
+                $metadato['tipo']='familia';
+                DB::beginTransaction();
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollBack();
+            }
+    
+            return redirect()->route('datos.index')->with('success', 'Cliente registrado');
+        }
+    
 
     /**
      * Display the specified resource.

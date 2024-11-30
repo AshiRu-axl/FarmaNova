@@ -35,7 +35,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Tabla</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -47,18 +47,10 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
             <th>Cedula</th>
             <th>Correo</th>
             <th>Numero</th>
+            <th>Mostrar</th>
             <th>Accion</th>
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cedula</th>
-            <th>Numero</th>
-            <th>Accion</th>
-          </tr>
-        </tfoot>
         <tbody>
           @foreach($clientes as $cliente)
           <tr>
@@ -67,6 +59,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
             <td>{{$cliente->documento_id}}</td>
             <td>{{$cliente->telefono}}</td>
             <td>{{$cliente->correo}}</td>
+            <td></td>
             <td>
 
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">

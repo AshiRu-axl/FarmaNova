@@ -48,29 +48,29 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
             <tr>
             <th>Titulo</th>
             <th>Descripcion</th>
+            <th>Accion</th>
          
           </tr>
         </thead>
-        <tfoot>
-          <tr>
-            <th>Titulo</th>
-            <th>Descripcion</th>
-             <th>Descripcion</th>
-            
-     
-          </tr>
-        </tfoot>
+    
         <tbody>
           @foreach($detalles as $detalle)
           <tr>
             <td>{{$detalle->nombre}}</td>
             <td>{{$detalle->descripcion}}</td>
+            <td>
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <form action="" method="get">
+              <button  class="btn btn-warning btn-circle">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+            </form>
+            </div>
+              <button href="#" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+              </button></td>
        
           
-            <td>
-
-
-            </td>
 
           </tr>
           @endforeach

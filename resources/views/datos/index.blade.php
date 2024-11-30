@@ -12,7 +12,6 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
 
 @push('css')
 
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 @endpush
 
 {{--Aqui inicia--}}
@@ -30,14 +29,14 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
   </ol>
 </div>
 <div class="mb-4">
-  <a href="{{route('clientes.create')}}"><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
+  <a href=""><button type="button" class="btn btn-outline-primary">Añadir a nuevo registro</button></a>
 </div>
 
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Tabla</h6>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -48,6 +47,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
             <tr>
             <th>Titulo</th>
             <th>Descripcion</th>
+            <th>Acciones</th>
          
           </tr>
         </thead>
@@ -55,7 +55,7 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
           <tr>
             <th>Titulo</th>
             <th>Descripcion</th>
-             <th>Descripcion</th>
+             <th>Acciones</th>
             
      
           </tr>
@@ -69,8 +69,23 @@ Osea se, esta pantalla va a tener todo el contenido del template junto con este 
           
             <td>
 
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  
+              <button  class="btn btn-warning btn-circle">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+            </form>
+            </div>
+              <button href="#" class="btn btn-danger btn-circle">
+                <i class="fas fa-trash"></i>
+              </button>
 
             </td>
+            <td><div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+</div>
+</td>
 
           </tr>
           @endforeach

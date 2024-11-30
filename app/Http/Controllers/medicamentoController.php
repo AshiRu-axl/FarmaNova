@@ -15,10 +15,14 @@ class medicamentoController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   $title = "Medicamentos";
-        $medicamento = Medicamento::all();
+    {  
+        
+        $title = "Medicamentos";
+        $medicamentos = Medicamento::with(['detalles', 'metadatos'])->get();
 
-        return view("medicamentos.index", ['medicamentos' => $medicamento],['title'=>$title]);
+        // Retornar a una vista, pasando los medicamentos con sus relaciones
+        return view('medicamentos.index', compact('medicamentos'),['title'=> $title]);
+    
     }
 
     /**

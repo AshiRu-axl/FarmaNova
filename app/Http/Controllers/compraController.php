@@ -1,25 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\StoreDetalleRequest;
+use App\Models\Compra;
+use App\Models\Proveedore;
+use App\Models\Medicamento;
 use Illuminate\Http\Request;
-use App\Models\Detalle;
-use App\Models\Documento;
-use Illuminate\Support\Facades\DB;
-use Exception;
-use App\Http\Requests\UpdateClienteRequest;
 
-class enfermedadController extends Controller
+class compraController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $title='Enfermedades';
-        $detalles = Detalle::where('tipo', 'enfermedad')->get();
-        return view("detalles.index",['detalles'=>$detalles],['title'=>$title]);
+    {   $proveedores = Proveedore::all();
+    
+        $medicamentos = Medicamento::with(['detalles', 'metadatos'])->get();
+
+        // Retornar a una vista, pasando los medicamentos con sus relaciones
+        return view('compras.index', compact('medicamentos'),['proveedores'=> $proveedores]);
     }
 
     /**

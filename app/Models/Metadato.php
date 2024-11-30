@@ -10,7 +10,7 @@ class Metadato extends Model
     use HasFactory;
     public function medicamentos()
     {
-        return $this->belongsToMany(Medicamento::class)->withTimestamps();
+        return $this->belongsToMany(Medicamento::class,'metadata_medicamento','medicamento_id', 'metadata_id')->withTimestamps();
     }
 
     protected $fillable = ["nombre", "descripcion", "estado", "tipo"];

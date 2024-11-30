@@ -1,5 +1,5 @@
 
-<ul class="navbar-nav sidebar sidebar-dark accordion toggled" id="accordionSidebar" style="transition: all 0.2s ease; background-color: rgba(17, 31, 39, 1);">
+<ul class="navbar-nav sidebar sidebar-dark accordion toggled fixed" id="accordionSidebar" style="transition: all 0.2s ease; background-color: rgba(17, 31, 39, 1); ">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -27,7 +27,7 @@
             <span>Venta</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('compras.index')}}">
         <i class="fa-solid fa-shop"></i>
             <span>Compra</span></a>
     </li>
