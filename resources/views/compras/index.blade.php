@@ -131,33 +131,5 @@
 @endsection
 
 @push('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#medicamento_select').on('change', function() {
-            var medicamentoId = $(this).val();
-            var presentacionSelect = $('#presentacion_select');
 
-            // Limpia las opciones anteriores
-            presentacionSelect.empty().append('<option value="">Seleccione una presentación</option>');
-
-            if (medicamentoId) {
-                // Realiza una solicitud AJAX para obtener las presentaciones relacionadas
-                $.ajax({
-                    url: '/get-presentaciones/' + medicamentoId,
-                    type: 'GET',
-                    success: function(data) {
-                        // Itera las presentaciones recibidas y agrega las opciones al select
-                        data.forEach(function(dato) {
-                            presentacionSelect.append('<option value="' + dato.id + '">' + dato.nombre + '</option>');
-                        });
-                    },
-                    error: function() {
-                        alert('Error al cargar las presentaciones.');
-                    }
-                });
-            }
-        });
-    });
-</script>
 @endpush
